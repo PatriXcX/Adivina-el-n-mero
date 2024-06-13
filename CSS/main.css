@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start; ;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin-left: 1em;
+    margin-top: 1em;
+    
+}
+
+.container {
+    text-align: left;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+}
+
+.form {
+    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    
+}
+input {
+    margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            
+            box-sizing: border-box;
+}
+           
+            input[type="number"] {
+                border-radius: 5px; /* Esquinas redondeadas solo para input de tipo number */
+                border: none; /* Borde gris claro */
+                background-color: #c4c2c2;
+                max-width: 250px; 
+            }
+
+            input[type="text"] {
+                margin-top: 10px;
+                padding: 10px;
+                width: 99% ; /* Ancho máximo menos el espacio para el padding */
+                box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+                border: 3px solid #ccc; /* Borde gris claro */
+            }
+button {
+    margin-top: 10px;
+    padding:10px 20px;
+    
+    max-width: 500px; /* Limita el ancho máximo para una mejor presentación en pantallas grandes */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    background-color: #20c997; /* Color verde agua */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    
+}
