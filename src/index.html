@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ev_prueba</title>
+    <link rel="stylesheet" href="./scss/main.scss" />
+  </head>
+
+  <body class="body">
+    <header>
+      <h1 class="header">Adivina el número</h1>
+    </header>
+    <section class="container">
+      <main class="main">
+        <form class="form">
+          <label for="userNumber"> Introduce aquí tu número:</label>
+          <input
+            class="js__userNumberInput inputText"
+            type="text"
+            id="userNumber"
+            placeholder="ej:33"
+          />
+          <input class="js__testButton button" type="button" value="Prueba" />
+          <p class="js__clueBox input_2">Escribe el número y dale a Prueba</p>
+          <p class="input_2">
+            Número de intentos: <span class="js__triesBox">0</span>
+          </p>
+        </form>
+      </main>
+    </section>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
