@@ -8,20 +8,29 @@
     <link rel="stylesheet" href="./CSS/main.css">
 </head>
 
-<body class="styles">
-    <div class="container">
-        <h1>Adivina el número</h1>
-        <p>Introduce aquí tu número:</p>
+<body class="body">
 
-        <form class="js__form__input form">
-            <!-- <input class="js__inputNum" type="number" id="numero" placeholder="">
-            <button class="btn" onclick="adivinar()">Prueba</button>
-            <input class="js__inputText1" type="text" id="input1"
-                placeholder="Pista: Escribe el número y dale a Prueba">
-            <input class="js__inputText2" type="text" id="input2" placeholder="Número de intentos:0"> -->
-        </form>
-    </div>
+
+    <header>
+        <h1 class="header">Adivina el número</h1>
+    </header>
+    <section class="container">
+        <main class="main">
+            <form class="form">
+                <label for="userNumber"> Introduce aquí tu número:</label>
+                <input class="js__userNumberInput inputText" type="text" id="userNumber" placeholder="ej:33" />
+                <input class="js__testButton button" type="button" value="Prueba">
+                <p class="js__clueBox input_2"> Escribe el número y dale a Prueba</p>
+                <p class="input_2">Número de intentos: <span class="js__triesBox">0</span> </p>
+            </form>
+        </main>
+    </section>
+
     <script src="./js/main.js"></script>
 </body>
 
 </html>
+<!--        <input class="js__inputNum" type="number" id="numero" placeholder="">
+            <button class="js__btn" onclick="adivinar()">Prueba</button>
+            <input class="js__inputText1" type="text" id="input1"placeholder="Pista: Escribe el número y dale a Prueba">
+            <input class="js__inputText2" type="text" id="input2" placeholder="Número de intentos:0"> -->

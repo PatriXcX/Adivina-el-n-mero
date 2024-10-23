@@ -1,124 +1,55 @@
 //EJERCICIO 2/3
 "use strict";
 
-const formInputs = document.querySelector(".js__form__input");
-const InputNumber = document.querySelector(".js__inputNum");
-const formInputBtn = document.querySelector(".js__btn");
-const formInputText1 = document.querySelector(".js__inputText1t");
-const formInputText2 = document.querySelector(".js__inputText2");
-const prueba = "Prueba";
+//QUERY
 
-formInputs.innerHTML = `<input class="js__inputNum" type="number" id="numero" placeholder="">
-            <button class="btn" onclick="adivinar()">${prueba}</button>
-            <input class="js__inputText1" type="text" id="input1"
-                placeholder="Pista: Escribe el número y dale a Prueba">
-            <input class="js__inputText2" type="text" id="input2" placeholder="Número de intentos:">
+const userNumberInput = document.querySelector(".js__userNumberInput");
+const testButton = document.querySelector(".js__testButton");
+const clueBox = document.querySelector(".js__clueBox");
+const triesBox = document.querySelector(".js__triesBox");
+//VARIABLES GLOBALES
+const randomNumber = getRandomNumber(100);
+console.log(randomNumber);
+let userTries = 0;
 
-    `;
-
-//Funciones
-
-//generar un número aleatorio
-
-function showMessage() {}
-//Coger el valor del input number
-//Mostrar mensaje en innerhtml
+//FUNCIONES
 
 function getRandomNumber(max) {
-  console.log(parseInt(Math.random() * max));
   return parseInt(Math.random() * max);
 }
-getRandomNumber(100);
 
-//Funciones de eventos
+function generteClue() {
+  const userNumber = parseInt(userNumberInput.value);
 
-const handleClickBtnbtn = (ev) => {
-  //
-  showMessage();
-  generateNum();
-};
-
-btn.addEventListener("click", handleClickBtnbtn);
-
-/*const descripcionadalaber2 = document.querySelector(".js__adalaber");
-const adalaberinput = document.querySelector(".js__adalaber__input");
-const btn = document.querySelector(".js__btn");
-
-const adalaber1 = {
-  name: "Susana",
-  age: 34,
-  job: "periodista",
-  distance: 20,
-
-  run: function () {
-    console.log("Estoy corriendo");
-  },
-  runAMarathon: function (distance) {
-    console.log(
-      `Estoy corriendo un maratón de ${adalaber1.distance} kilómetros`
-    );
-  },
-};
-adalaber1.run();
-adalaber1.runAMarathon("distance");
-
-//EJERCICIO 1 ------------------------------------------------------------------------------
-
-/*const descripcionadalaber1 = document.querySelector(".js__adalaber");
-const descripcionadalaber2 = document.querySelector(".js__adalaber");
-const adalaberinput = document.querySelector(".js__adalaber__input");
-const btn = document.querySelector(".js__btn");
-
-const adalaber1 = {
-  name: "Susana",
-  age: 34,
-  job: "periodista",
-};
-
-const adalaber2 = {
-  name: "Rocío",
-  age: 25,
-  job: "actriz",
-};
-
-descripcionadalaber1.innerHTML = `Mi nombre es ${adalaber1.name}, tengo ${adalaber1.age} años y soy ${adalaber1.job}.`;
-descripcionadalaber2.innerHTML = `Mi nombre es ${adalaber2.name}, tengo ${adalaber2.age} años y soy ${adalaber2.job}.`;
-
-btn.addEventListener("click", (ev) => {
-  if (adalaberinput.value === "Susana") {
-    descripcionadalaber1.innerHTML = `Mi nombre es ${adalaber1.name}, tengo ${adalaber1.age} años y soy ${adalaber1.job}.`;
+  if (isNaN(userNumber)) {
+    clueBox.innerHTML = "Escribe un número";
+  } else if (userNumber < 1 || userNumber > 100) {
+    clueBox.innerHTML = "El número debe estar entre 1 y 100.";
+  } else if (userNumber < randomNumber) {
+    clueBox.innerHTML = "Demasiado bajo.";
+  } else if (userNumber > randomNumber) {
+    clueBox.innerHTML = "Demasiado alto.";
+  } else if (userNumber === randomNumber) {
+    clueBox.innerHTML = "¡¡¡Has ganado campeona!!!";
   }
-  if (adalaberinput.value === "Rocío") {
-    descripcionadalaber1.innerHTML = `Mi nombre es ${adalaber2.name}, tengo ${adalaber2.age} años y soy ${adalaber2.job}.`;
-  }
-});*/
-//---------------------------------------------------------------
+}
 
-/*console.log(adalaber);
-adalaber.nombre = "Marta"; //para cambiar de nombre
-console.log(adalaber);
-/*const adalaber2 = {};
-name: "Susana";
-age: 34;
-job: "periodista";
+function countNumOfTries() {
+  userTries++; //userTries = userTries + 1;
 
-/*const objeto1 = {
-  a: 1,
-  b: 2,
-  c: 3,
-};
-const a = 1;
-const b = 2;
-const c = 3;
+  triesBox.innerHTML = userTries;
+}
 
-const suma = objeto1.a + objeto1.b + objeto1.c;
+//FUNCIONES DE EVENTOS
 
-console.log(suma);
-console.log(objeto1);
-//-------------------------------
+function handleClickButton(ev) {
+  generteClue();
+  countNumOfTries();
+}
 
-/*const profe = {
-  nombre: "Iván",
-  altura: 180,
-  peso: 85,
-};*/
+//EVENTOS
+testButton.addEventListener("click", handleClickButton);
+
+//CÓDIGO AL CARGAR LA PÁGINA
+
+//Cuando carga la página
